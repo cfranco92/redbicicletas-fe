@@ -3,16 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BicyclesListComponent } from './bicyle/components/bicycles-list/bicycles-list.component';
+import { BicycleModule } from './bicycle/bicycle.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BicyclesListComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule,
+    BicycleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
