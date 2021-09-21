@@ -12,7 +12,7 @@ export class BicycleService {
   constructor(private http: HttpClient) { }
 
   create(bicycle: Bicycle) {
-    return this.http.post<Bicycle>(`${api}/bicycle`, bicycle);
+    return this.http.post<Bicycle>(`${api}/bicicleta`, bicycle);
   }
 
   read() {
@@ -23,5 +23,9 @@ export class BicycleService {
 
   update() { }
 
-  delete() { }
+  delete(id: String) {
+    return this.http.delete<any>(`${api}/bicicleta/${id}`).toPromise().then(data => {
+      alert(data.body)
+    });
+  }
 }

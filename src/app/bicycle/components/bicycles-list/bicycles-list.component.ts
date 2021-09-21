@@ -21,9 +21,12 @@ export class BicyclesListComponent implements OnInit {
 
   getBicycles() {
     this.bicyclesService.read().subscribe((data) => {
-      console.log(data)
       this.bicycles = data.body.map((bicycle: any) => BicycleFactory.toModel(bicycle))
-      console.log(this.bicycles)
     })
+  }
+
+  deleteBicycleById(id: String) {
+    alert(id)
+    this.bicyclesService.delete(id)
   }
 }
