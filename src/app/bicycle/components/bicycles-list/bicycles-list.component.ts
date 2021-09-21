@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BicycleFactory } from 'src/app/core/factory/bicycle.factory';
+import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
 
 @Component({
   selector: 'app-bicycles-list',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BicyclesListComponent implements OnInit {
 
-  constructor() { }
+  bicycles: any[];
 
-  ngOnInit(): void {
+  constructor(private bicyclesService: BicycleService) {
+    this.bicycles = []
   }
 
+  ngOnInit(): void {
+    this.getBicycles()
+  }
+
+  getBicycles() {
+    this.bicyclesService.read().subscribe((data) => {
+      this.bicycles = data.map((bicycle) => BicycleFactory.toModel(bicycle))
+      console.log(this.bicycles)
+    })
+  }
 }

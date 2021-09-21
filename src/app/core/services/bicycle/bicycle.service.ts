@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Bicycle } from '../../models/bicycle.model';
 
-const api = '/api';
+const api = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,11 @@ export class BicycleService {
     return this.http.post<Bicycle>(`${api}/bicycle`, bicycle);
   }
 
-  read() { }
+  read() {
+    return this.http.get<Bicycle[]>(`${api}/bicycle`);
+  }
+
+  readById() { }
 
   update() { }
 
