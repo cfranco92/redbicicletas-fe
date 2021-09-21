@@ -12,8 +12,8 @@
         <tr *ngFor="let bicycle of bicycles">
             <td>{{bicycle.id}}</td>
             <td>{{bicycle.color}}</td>
-            <td>{{bicycle.modelo}}</td>
-            <td>{{bicycle.ubicacion}}</td>
+            <td>{{bicycle.model}}</td>
+            <td>{{bicycle.longitude}},{{bicycle.latitude}}</td>
             <td>mostrar</td>
             <td>editar</td>
             <td><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
