@@ -4,6 +4,7 @@ import { BicyclesListComponent } from './components/bicycles-list/bicycles-list.
 import { BicycleDetailsComponent } from './components/bicycle-details/bicycle-details.component';
 import { BicycleUpdateComponent } from './components/bicycle-update/bicycle-update.component';
 import { SharedModule } from '../shared/shared.module';
+import { BicyclesRoutingModule } from './bicycles-routing.module';
 
 
 
@@ -14,8 +15,10 @@ import { SharedModule } from '../shared/shared.module';
     BicycleUpdateComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
-    SharedModule
+    BicyclesRoutingModule,
+    SharedModule,
   ]
 })
 export class BicycleModule { }
