@@ -14,8 +14,8 @@
             <td>{{bicycle.color}}</td>
             <td>{{bicycle.model}}</td>
             <td>{{bicycle.longitude}},{{bicycle.latitude}}</td>
-            <td>mostrar</td>
-            <td>editar</td>
+            <td [routerLink]="['/bicicletas/', bicycle.bicycleId, 'show']">mostrar</td>
+            <td [routerLink]="['/bicicletas/', bicycle.bicycleId, 'update']">editar</td>
             <td><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
         </tr>
     </table>
