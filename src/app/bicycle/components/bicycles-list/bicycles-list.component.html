@@ -1,1 +1,22 @@
-<p>bicycles-list works!</p>
+<div class="container">
+    <table style="width:100%" border="1">
+        <tr>
+            <th>#</th>
+            <th>Color</th>
+            <th>Modelo</th>
+            <th>Ubicación</th>
+            <th>.</th>
+            <th>.</th>
+            <th>.</th>
+        </tr>
+        <tr *ngFor="let bicycle of bicycles">
+            <td>{{bicycle.id}}</td>
+            <td>{{bicycle.color}}</td>
+            <td>{{bicycle.modelo}}</td>
+            <td>{{bicycle.ubicacion}}</td>
+            <td>mostrar</td>
+            <td>editar</td>
+            <td><button (click)="eliminar()">Eliminar</button></td>
+        </tr>
+    </table>
+</div>

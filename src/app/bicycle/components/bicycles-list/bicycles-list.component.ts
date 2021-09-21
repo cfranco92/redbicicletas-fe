@@ -21,7 +21,8 @@ export class BicyclesListComponent implements OnInit {
 
   getBicycles() {
     this.bicyclesService.read().subscribe((data) => {
-      this.bicycles = data.map((bicycle) => BicycleFactory.toModel(bicycle))
+      console.log(data)
+      this.bicycles = data.body.map((bicycle: any) => BicycleFactory.toModel(bicycle))
       console.log(this.bicycles)
     })
   }

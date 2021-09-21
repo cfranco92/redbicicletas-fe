@@ -16,7 +16,7 @@ export class BicycleService {
   }
 
   read() {
-    return this.http.get<Bicycle[]>(`${api}/bicycle`);
+    return this.http.get<any>(`${api}/bicicleta`);
   }
 
   readById() { }
