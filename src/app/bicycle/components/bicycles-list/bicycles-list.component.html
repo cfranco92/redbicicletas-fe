@@ -1,23 +1,23 @@
 <app-navbar></app-navbar>
-<div class="container">
-    <table style="width:100%" border="1">
+<div class="container h-screen">
+    <table style="width:100%" border="1" class="mt-10">
         <tr>
-            <th>#</th>
-            <th>Color</th>
-            <th>Modelo</th>
-            <th>Ubicación</th>
+            <th class="text-center">#</th>
+            <th class="text-center">Color</th>
+            <th class="text-center">Modelo</th>
+            <th class="text-center">Ubicación</th>
             <th>.</th>
             <th>.</th>
             <th>.</th>
         </tr>
         <tr *ngFor="let bicycle of bicycles">
-            <td>{{bicycle.id}}</td>
-            <td>{{bicycle.color}}</td>
-            <td>{{bicycle.model}}</td>
-            <td>{{bicycle.longitude}},{{bicycle.latitude}}</td>
-            <td [routerLink]="['/bicicletas/', bicycle.bicycleId, 'show']">mostrar</td>
-            <td [routerLink]="['/bicicletas/', bicycle.bicycleId, 'update']">editar</td>
-            <td><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
+            <td class="text-center">{{bicycle.id}}</td>
+            <td class="text-center">{{bicycle.color}}</td>
+            <td class="text-center">{{bicycle.model}}</td>
+            <td class="text-center">{{bicycle.longitude}},{{bicycle.latitude}}</td>
+            <td class="text-center" [routerLink]="['/bicicletas/', bicycle.bicycleId, 'show']">mostrar</td>
+            <td class="text-center" [routerLink]="['/bicicletas/', bicycle.bicycleId, 'update']">editar</td>
+            <td class="text-center"><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
         </tr>
     </table>
 </div>
