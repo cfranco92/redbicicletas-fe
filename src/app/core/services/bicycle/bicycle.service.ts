@@ -19,9 +19,13 @@ export class BicycleService {
     return this.http.get<any>(`${api}/bicicleta`);
   }
 
-  readById() { }
+  readById(bicicletaId: String) {
+    return this.http.get<any>(`${api}/bicicleta/${bicicletaId}`);
+  }
 
-  update() { }
+  update(bicycle: Bicycle) {
+    return this.http.put<any>(`${api}/bicicleta/${bicycle._id}`, bicycle)
+  }
 
   delete(id: String) {
     return this.http.delete<any>(`${api}/bicicleta/${id}`).toPromise().then(data => {

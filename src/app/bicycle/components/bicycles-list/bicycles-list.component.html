@@ -11,12 +11,14 @@
             <th>.</th>
         </tr>
         <tr *ngFor="let bicycle of bicycles">
-            <td class="text-center">{{bicycle.id}}</td>
+            <td class="text-center">{{bicycle.bicycleId}}</td>
             <td class="text-center">{{bicycle.color}}</td>
             <td class="text-center">{{bicycle.model}}</td>
             <td class="text-center">{{bicycle.longitude}},{{bicycle.latitude}}</td>
-            <td class="text-center" [routerLink]="['/bicicletas/', bicycle.bicycleId, 'show']">mostrar</td>
-            <td class="text-center" [routerLink]="['/bicicletas/', bicycle.bicycleId, 'update']">editar</td>
+            <td class="text-center text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/', bicycle.id, 'show']">
+                mostrar</td>
+            <td class="text-center text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/', bicycle.id, 'update']">
+                editar</td>
             <td class="text-center"><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
         </tr>
     </table>

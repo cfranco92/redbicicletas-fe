@@ -1,4 +1,5 @@
 export interface Bicycle {
+    _id?: String;
     bicycleId: String;
     color: String;
     // color: ('Blanco' | 'Negro' | 'Rojo' | 'Verde')[];

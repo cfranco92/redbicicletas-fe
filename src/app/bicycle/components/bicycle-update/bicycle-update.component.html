@@ -1,1 +1,33 @@
-<p>bicycle-update works!</p>
+<app-navbar></app-navbar>
+<div class="ml-10 h-screen flex flex-col">
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/bicicletas']"
+        routerLinkActive="router-link-active"><a>Volver</a></div>
+    <div class="mt-10 text-5xl">Mostrar bicicleta</div>
+    <div class="mt-10 flex flex-col">
+        <div class="flex flex-row">
+            ID:
+            <input type="text" [(ngModel)]="bicycle.bicycleId" class="ml-2 w-48 h-7 pl-1">
+        </div>
+        <div class="flex flex-row mt-2">
+            Color:
+            <input type="text" [(ngModel)]="bicycle.color" class="ml-2 w-48 h-7 pl-1">
+        </div>
+        <div class="flex flex-row mt-2">
+            Modelo:
+            <input type="text" [(ngModel)]="bicycle.model" class="ml-2 w-48 h-7 pl-1">
+        </div>
+        <div class="flex flex-row mt-2">
+            Latitud:
+            <input type="text" [(ngModel)]="bicycle.latitude" class="ml-2 w-48 h-7 pl-1">
+        </div>
+        <div class="flex flex-row mt-2">
+            Longitud:
+            <input type="text" [(ngModel)]="bicycle.longitude" class="ml-2 w-48 h-7 pl-1">
+        </div>
+    </div>
+    <div class="mt-6 ml-4 cursor-pointer rounded-3xl border-4 shadow-3xl w-24 h-10 flex flex-col justify-center items-center"
+        (click)="updateBicycle()">
+        Submit
+    </div>
+</div>
+<app-footer></app-footer>

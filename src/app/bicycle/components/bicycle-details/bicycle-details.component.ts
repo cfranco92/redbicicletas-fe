@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Bicycle } from 'src/app/core/models/bicycle.model';
+import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
 
 @Component({
   selector: 'app-bicycle-details',
@@ -14,6 +15,7 @@ export class BicycleDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private bicyclesService: BicycleService
   ) {
     this.bicycle = {
       bicycleId: '',
@@ -32,11 +34,14 @@ export class BicycleDetailsComponent implements OnInit {
   getBicycleId() {
     this.route.params.subscribe((params: Params) => {
       this.bicycleId = params.id.toUpperCase();
+      this.getBicycle();
     });
   }
 
   getBicycle() {
-
+    this.bicyclesService.readById(this.bicycleId).subscribe((bicycle) => {
+      this.bicycle = bicycle.body[0];
+    })
   }
 
 }
