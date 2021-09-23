@@ -22,8 +22,8 @@
     </div>
   </div>
   <!-- Leaflet Map -->
-  <div class="container">
-    <app-map></app-map>
+  <div class="container" *ngIf="bicycles.length > 0">
+    <app-map [myPoints]="bicycles"></app-map>
   </div>
   <!-- Content Row-->
   <div class="row gx-4 gx-lg-5">
