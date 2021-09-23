@@ -12,7 +12,7 @@ export class BicycleService {
   constructor(private http: HttpClient) { }
 
   create(bicycle: Bicycle) {
-    return this.http.post<Bicycle>(`${api}/bicicleta`, bicycle);
+    return this.http.post<any>(`${api}/bicicleta`, bicycle);
   }
 
   read() {

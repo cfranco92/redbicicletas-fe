@@ -45,10 +45,9 @@ export class BicycleUpdateComponent implements OnInit {
   }
 
   updateBicycle() {
-    this.bicyclesService.update(this.bicycle).subscribe((response) => {
-      console.log(response)
+    this.bicyclesService.update(this.bicycle).subscribe(() => {
+      alert(`Bicicleta ${this.bicycle.bicycleId} actualizada con éxito`)
     })
-    alert("Updated")
   }
 
 }

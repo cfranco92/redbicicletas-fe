@@ -11,7 +11,6 @@ import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
 export class BicycleNewComponent implements OnInit {
 
   bicycle: Bicycle;
-  bicycleId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,16 +23,14 @@ export class BicycleNewComponent implements OnInit {
       latitude: undefined,
       longitude: undefined,
     }
-    this.bicycleId = ''
   }
 
   ngOnInit(): void { }
 
   createBicycle() {
     this.bicyclesService.create(this.bicycle).subscribe((response) => {
-      console.log(response)
+      alert(`Bicicleta ${response.body.bicycleId} con el id ${response.body._id} en la base de datos, creada con éxito`)
     })
-    alert("Updated")
   }
 
 }
