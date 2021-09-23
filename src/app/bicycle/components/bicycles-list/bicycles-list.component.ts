@@ -26,7 +26,6 @@ export class BicyclesListComponent implements OnInit {
   }
 
   deleteBicycleById(id: String) {
-    alert(id)
-    this.bicyclesService.delete(id)
+    this.bicyclesService.delete(id).then(() => this.ngOnInit())
   }
 }

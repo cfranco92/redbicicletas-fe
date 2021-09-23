@@ -1,6 +1,13 @@
 <app-navbar></app-navbar>
 <div class="container h-screen">
-    <table style="width:100%" border="1" class="mt-10">
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/']" routerLinkActive="router-link-active">
+        <a>Home</a>
+    </div>
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/create']"
+        routerLinkActive="router-link-active">
+        <a>Nueva Bicicleta</a>
+    </div>
+    <table style="width:100%" border="1">
         <tr>
             <th class="text-center">#</th>
             <th class="text-center">Color</th>
