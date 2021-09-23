@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Bicycle } from 'src/app/core/models/bicycle.model';
 
 @Component({
   selector: 'app-bicycle-details',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BicycleDetailsComponent implements OnInit {
 
-  constructor() { }
+  bicycle: Bicycle;
+  bicycleId: string;
+
+  constructor(
+    private route: ActivatedRoute,
+  ) {
+    this.bicycle = {
+      bicycleId: '',
+      color: '',
+      model: '',
+      latitude: 0,
+      longitude: 0,
+    }
+    this.bicycleId = ''
+  }
 
   ngOnInit(): void {
+    this.getBicycleId()
+  }
+
+  getBicycleId() {
+    this.route.params.subscribe((params: Params) => {
+      this.bicycleId = params.id.toUpperCase();
+    });
+  }
+
+  getBicycle() {
+
   }
 
 }
