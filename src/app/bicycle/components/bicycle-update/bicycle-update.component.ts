@@ -13,6 +13,35 @@ export class BicycleUpdateComponent implements OnInit {
   bicycle: Bicycle;
   bicycleId: string;
 
+  colors: any[] = [
+    {
+      text: 'Blanco'
+    },
+    {
+      text: 'Negro'
+    },
+    {
+      text: 'Rojo'
+    },
+    {
+      text: 'Verde'
+    },
+  ]
+  models: any[] = [
+    {
+      text: 'Ruta'
+    },
+    {
+      text: 'Cross'
+    },
+    {
+      text: 'Mountain'
+    },
+    {
+      text: 'Turismo'
+    },
+  ]
+
   constructor(
     private route: ActivatedRoute,
     private bicyclesService: BicycleService

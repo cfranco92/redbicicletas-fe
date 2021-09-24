@@ -11,6 +11,34 @@ import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
 export class BicycleNewComponent implements OnInit {
 
   bicycle: Bicycle;
+  colors: any[] = [
+    {
+      text: 'Blanco'
+    },
+    {
+      text: 'Negro'
+    },
+    {
+      text: 'Rojo'
+    },
+    {
+      text: 'Verde'
+    },
+  ]
+  models: any[] = [
+    {
+      text: 'Ruta'
+    },
+    {
+      text: 'Cross'
+    },
+    {
+      text: 'Mountain'
+    },
+    {
+      text: 'Turismo'
+    },
+  ]
 
   constructor(
     private route: ActivatedRoute,

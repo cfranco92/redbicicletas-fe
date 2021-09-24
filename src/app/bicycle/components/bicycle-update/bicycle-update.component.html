@@ -10,11 +10,19 @@
         </div>
         <div class="flex flex-row mt-2">
             Color:
-            <input type="text" [(ngModel)]="bicycle.color" class="ml-2 w-48 h-7 pl-1">
+            <select name="miselect" [(ngModel)]="bicycle.color" class="custom-select ml-2 w-48 h-10 pl-1">
+                <option [value]="color.text" *ngFor="let color of colors">
+                    {{ color.text }}
+                </option>
+            </select>
         </div>
         <div class="flex flex-row mt-2">
             Modelo:
-            <input type="text" [(ngModel)]="bicycle.model" class="ml-2 w-48 h-7 pl-1">
+            <select name="miselect" [(ngModel)]="bicycle.model" class="custom-select ml-2 w-48 h-10 pl-1">
+                <option [value]="model.text" *ngFor="let model of models">
+                    {{ model.text }}
+                </option>
+            </select>
         </div>
         <div class="flex flex-row mt-2">
             Latitud:
