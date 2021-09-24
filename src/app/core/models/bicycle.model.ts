@@ -1,4 +1,5 @@
 export interface Bicycle {
+    id?: String;
     _id?: String;
     bicycleId?: String;
     color?: String;
@@ -7,4 +8,5 @@ export interface Bicycle {
     model?: String;
     latitude?: Number;
     longitude?: Number;
+    user?: any
 }

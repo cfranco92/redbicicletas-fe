@@ -13,8 +13,10 @@
             <th class="text-center">Color</th>
             <th class="text-center">Modelo</th>
             <th class="text-center">Ubicación</th>
+            <th class="text-center">Estado</th>
             <th>.</th>
             <th>.</th>
+            <th *ngIf="isLogin">.</th>
             <th>.</th>
         </tr>
         <tr *ngFor="let bicycle of bicycles">
@@ -22,10 +24,14 @@
             <td class="text-center">{{bicycle.color}}</td>
             <td class="text-center">{{bicycle.model}}</td>
             <td class="text-center">{{bicycle.longitude}},{{bicycle.latitude}}</td>
+            <td class="text-center">Libre | Alquilada</td>
             <td class="text-center text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/', bicycle.id, 'show']">
                 mostrar</td>
             <td class="text-center text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/', bicycle.id, 'update']">
                 editar</td>
+            <td *ngIf="isLogin" class="text-center text-blue-400 cursor-pointer" (click)="rentBicycleById(bicycle)">
+                Alquilar
+            </td>
             <td class="text-center"><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
         </tr>
     </table>

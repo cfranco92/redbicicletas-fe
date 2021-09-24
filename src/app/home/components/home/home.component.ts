@@ -10,15 +10,28 @@ import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
 })
 export class HomeComponent implements OnInit {
 
+  isLogin: boolean = false
   bicycles: any[] = []
 
   constructor(
     private bicyclesService: BicycleService,
     private authService: AuthenticationService,
-  ) { }
+  ) {
+    this.getUserStatus();
+  }
 
   ngOnInit(): void {
-    this.getBicycles()
+    this.getBicycles();
+  }
+
+  getUserStatus() {
+    this.authService.getUserStatus().subscribe((user) => {
+      if (user) {
+        this.isLogin = true
+      } else {
+        this.isLogin = false
+      }
+    })
   }
 
   getBicycles() {
@@ -34,4 +47,6 @@ export class HomeComponent implements OnInit {
   logOut() {
     this.authService.logout();
   }
+
+
 }

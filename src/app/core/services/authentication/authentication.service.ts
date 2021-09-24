@@ -11,10 +11,20 @@ export class AuthenticationService {
     public auth: AngularFireAuth
   ) { }
 
-  login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  async login() {
+    const res = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    let token = Object(res.credential).accessToken;
+    localStorage.setItem('user', JSON.stringify(res.user))
+    localStorage.setItem('accessToken', token)
   }
-  logout() {
-    this.auth.signOut();
+
+  async logout() {
+    await this.auth.signOut();
+    localStorage.removeItem('user');
+    localStorage.removeItem('accessToken');
+  }
+
+  getUserStatus() {
+    return this.auth.authState
   }
 }

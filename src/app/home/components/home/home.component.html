@@ -10,7 +10,8 @@
       <p>
         Primer red de Bicicleteros Urbanos, Inscribete y disfruta
       </p>
-      <a class="btn btn-primary" (click)="logIn()">Inscríbete aquí</a>
+      <a class="btn btn-primary" (click)="logIn()" *ngIf="!isLogin">Inscríbete aquí</a>
+      <a class="btn btn-primary" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
     </div>
   </div>
   <!-- Call to Action-->

@@ -27,6 +27,10 @@ export class BicycleService {
     return this.http.put<any>(`${api}/bicicleta/${bicycle._id}`, bicycle)
   }
 
+  updateById(bicycle: Bicycle) {
+    return this.http.put<any>(`${api}/bicicleta/${bicycle.id}`, bicycle)
+  }
+
   delete(id: String) {
     return this.http.delete<any>(`${api}/bicicleta/${id}`).toPromise().then(data => {
       alert(data.body)
