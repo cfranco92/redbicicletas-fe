@@ -49,7 +49,7 @@ export class BicyclesListComponent implements OnInit {
   }
 
   rentBicycleById(bicycle: Bicycle) {
-    bicycle.user = this.user;
+    bicycle.user = this.user.uid;
     this.bicyclesService.updateById(bicycle).subscribe((response: any) => {
       alert(`Bicleta con id ${bicycle.bicycleId} ha sido rentada por ${this.user.displayName} con el id ${this.user.uid}`)
     });
