@@ -11,6 +11,7 @@ import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
 export class HomeComponent implements OnInit {
 
   isLogin: boolean = false
+  user: any;
   bicycles: any[] = []
 
   constructor(
@@ -27,6 +28,8 @@ export class HomeComponent implements OnInit {
   getUserStatus() {
     this.authService.getUserStatus().subscribe((user) => {
       if (user) {
+        this.user = Object(user.multiFactor).user;
+        console.log(this.user)
         this.isLogin = true
       } else {
         this.isLogin = false
@@ -46,6 +49,7 @@ export class HomeComponent implements OnInit {
 
   logOut() {
     this.authService.logout();
+    this.user = ''
   }
 
 

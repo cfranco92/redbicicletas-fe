@@ -14,25 +14,40 @@
             <th class="text-center">Modelo</th>
             <th class="text-center">Ubicación</th>
             <th class="text-center">Estado</th>
+            <th class="text-center">Usuario</th>
             <th>.</th>
             <th>.</th>
             <th *ngIf="isLogin">.</th>
             <th>.</th>
         </tr>
         <tr *ngFor="let bicycle of bicycles">
-            <td class="text-center">{{bicycle.bicycleId}}</td>
-            <td class="text-center">{{bicycle.color}}</td>
-            <td class="text-center">{{bicycle.model}}</td>
-            <td class="text-center">{{bicycle.longitude}},{{bicycle.latitude}}</td>
-            <td class="text-center">Libre | Alquilada</td>
-            <td class="text-center text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/', bicycle.id, 'show']">
+            <td class="text-center px-1">{{bicycle.bicycleId}}</td>
+            <td class="text-center px-1">{{bicycle.color}}</td>
+            <td class="text-center px-1">{{bicycle.model}}</td>
+            <td class="text-center px-1">{{bicycle.longitude}},{{bicycle.latitude}}</td>
+            <td class="text-center px-1">
+                <div *ngIf="!bicycle.user">Libre</div>
+                <div *ngIf="bicycle.user">Rentada</div>
+            </td>
+            <td class="text-center px-1">
+                <div *ngIf="!bicycle.user">N/A</div>
+                <div *ngIf="bicycle.user">{{bicycle.user}}</div>
+            </td>
+            <td class="text-center text-blue-400 cursor-pointer px-1"
+                [routerLink]="['/bicicletas/', bicycle.id, 'show']">
                 mostrar</td>
-            <td class="text-center text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/', bicycle.id, 'update']">
+            <td class="text-center text-blue-400 cursor-pointer px-1"
+                [routerLink]="['/bicicletas/', bicycle.id, 'update']">
                 editar</td>
-            <td *ngIf="isLogin" class="text-center text-blue-400 cursor-pointer" (click)="rentBicycleById(bicycle)">
+            <td *ngIf="isLogin" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="rentBicycleById(bicycle)">
+                Alquilar
+            <td *ngIf="isLogin && bicycle.user == user" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="rentBicycleById(bicycle)">
                 Alquilar
             </td>
-            <td class="text-center"><button (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
+            <td class="text-center bg-gray-400 text-white"><button
+                    (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
         </tr>
     </table>
 </div>

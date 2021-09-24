@@ -10,8 +10,14 @@
       <p>
         Primer red de Bicicleteros Urbanos, Inscribete y disfruta
       </p>
-      <a class="btn btn-primary" (click)="logIn()" *ngIf="!isLogin">Inscríbete aquí</a>
-      <a class="btn btn-primary" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
+      <div *ngIf="user?.displayName" class="mt-4 flex flex-row items-center">
+        <img [src]="user.photoURL" alt="" class="rounded-3xl mr-4">
+        Bienvenido de nuevo {{user?.displayName}}
+      </div>
+      <div class="mt-10">
+        <a class="btn btn-primary" (click)="logIn()" *ngIf="!isLogin">Inscríbete aquí</a>
+        <a class="btn btn-primary" (click)="logOut()" *ngIf="isLogin">Cerrar Sesión</a>
+      </div>
     </div>
   </div>
   <!-- Call to Action-->
