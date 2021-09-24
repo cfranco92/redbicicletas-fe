@@ -30,7 +30,7 @@ export class BicyclesListComponent implements OnInit {
   getUserStatus() {
     this.authService.getUserStatus().subscribe((user) => {
       if (user) {
-        console.log(user.multiFactor)
+        this.user = Object(user.multiFactor).user;
         this.isLogin = true
       } else {
         this.isLogin = false
@@ -41,7 +41,6 @@ export class BicyclesListComponent implements OnInit {
   getBicycles() {
     this.bicyclesService.read().subscribe((data) => {
       this.bicycles = data.body.map((bicycle: any) => BicycleFactory.toModel(bicycle))
-      console.log(this.bicycles)
     })
   }
 
@@ -52,7 +51,7 @@ export class BicyclesListComponent implements OnInit {
   rentBicycleById(bicycle: Bicycle) {
     bicycle.user = this.user;
     this.bicyclesService.updateById(bicycle).subscribe((response: any) => {
-      console.log(response)
+      alert(`Bicleta con id ${bicycle.bicycleId} ha sido rentada por ${this.user.displayName} con el id ${this.user.uid}`)
     });
   }
 }
