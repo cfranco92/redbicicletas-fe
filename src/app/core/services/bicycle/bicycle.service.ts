@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Bicycle } from '../../models/bicycle.model';
 
-const api = 'http://localhost:3000';
+const api = 'http://169.57.112.124:30690';
 
 @Injectable({
   providedIn: 'root'
