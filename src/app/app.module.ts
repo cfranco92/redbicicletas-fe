@@ -9,6 +9,13 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeModule } from './home/home.module';
 
+import { environment } from 'src/environments/environment';
+
+import { AuthenticationService } from './core/services/authentication/authentication.service';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +25,13 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     SharedModule,
     BicycleModule,
     HomeModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

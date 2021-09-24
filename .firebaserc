@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "socialplatform-a7f80": {
+      "hosting": {
+        "redbicicletas-fe": [
+          "socialplatform-a7f80"
+        ]
+      }
+    }
+  }
+}
