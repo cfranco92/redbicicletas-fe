@@ -55,4 +55,11 @@ export class BicyclesListComponent implements OnInit {
       alert(`Bicleta con id ${bicycle.bicycleId} ha sido rentada por ${this.user.displayName} con el id ${this.user.uid}`)
     });
   }
+
+  returnBicycleById(bicycle: Bicycle) {
+    bicycle.user = '';
+    this.bicyclesService.updateById(bicycle).subscribe((response: any) => {
+      alert(`Bicleta con id ${bicycle.bicycleId} ha sido entregada por ${this.user.displayName} con el id ${this.user.uid}`)
+    });
+  }
 }

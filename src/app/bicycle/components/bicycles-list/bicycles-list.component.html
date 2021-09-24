@@ -35,16 +35,20 @@
             </td>
             <td class="text-center text-blue-400 cursor-pointer px-1"
                 [routerLink]="['/bicicletas/', bicycle.id, 'show']">
-                mostrar</td>
+                Mostrar</td>
             <td class="text-center text-blue-400 cursor-pointer px-1"
                 [routerLink]="['/bicicletas/', bicycle.id, 'update']">
-                editar</td>
-            <td *ngIf="isLogin" class="text-center text-blue-400 cursor-pointer px-1"
+                Editar</td>
+            <td *ngIf="isLogin && !bicycle.user" class="text-center text-blue-400 cursor-pointer px-1"
                 (click)="rentBicycleById(bicycle)">
                 Alquilar
-            <td *ngIf="isLogin && bicycle.user == user" class="text-center text-blue-400 cursor-pointer px-1"
-                (click)="rentBicycleById(bicycle)">
-                Alquilar
+            <td *ngIf="isLogin && bicycle.user === user.uid" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="returnBicycleById(bicycle)">
+                Entregar
+            </td>
+            <td *ngIf="isLogin && bicycle.user && bicycle.user !== user.uid"
+                class="text-center text-red-400 cursor-pointer px-1">
+                Restringido
             </td>
             <td class="text-center bg-gray-400 text-white"><button
                     (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
