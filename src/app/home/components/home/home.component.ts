@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
     this.authService.getUserStatus().subscribe((user) => {
       if (user) {
         this.user = Object(user.multiFactor).user;
-        console.log(this.user)
         this.isLogin = true
       } else {
         this.isLogin = false
