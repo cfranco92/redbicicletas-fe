@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="container h-screen">
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/']" routerLinkActive="router-link-active">
+        <a>Home</a>
+    </div>
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/bicicletas/create']"
+        routerLinkActive="router-link-active">
+        <a>Nueva Bicicleta</a>
+    </div>
+    <table style="width:100%" border="1">
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Color</th>
+            <th class="text-center">Modelo</th>
+            <th class="text-center">Ubicación</th>
+            <th class="text-center">Estado</th>
+            <th class="text-center">Usuario</th>
+            <th *ngIf="isLogin">.</th>
+        </tr>
+        <tr *ngFor="let bicycle of bicycles">
+            <td class="text-center px-1">{{bicycle.bicycleId}}</td>
+            <td class="text-center px-1">{{bicycle.color}}</td>
+            <td class="text-center px-1">{{bicycle.model}}</td>
+            <td class="text-center px-1">{{bicycle.longitude}},{{bicycle.latitude}}</td>
+            <td class="text-center px-1">
+                <div *ngIf="!bicycle.user">Libre</div>
+                <div *ngIf="bicycle.user">Rentada</div>
+            </td>
+            <td class="text-center px-1">
+                <div *ngIf="!bicycle.user">N/A</div>
+                <div *ngIf="bicycle.user">{{bicycle.user}}</div>
+            </td>
+            <td *ngIf="isLogin && !bicycle.user" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="rentBicycleById(bicycle)">
+                Alquilar
+            <td *ngIf="isLogin && bicycle.user === user.uid" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="returnBicycleById(bicycle)">
+                Entregar
+            </td>
+            <td *ngIf="isLogin && bicycle.user && bicycle.user !== user.uid"
+                class="text-center text-red-400 cursor-pointer px-1">
+                Restringido
+            </td>
+        </tr>
+    </table>
+</div>
+<app-footer></app-footer>

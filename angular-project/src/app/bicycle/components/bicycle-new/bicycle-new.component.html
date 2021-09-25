@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="ml-10 h-screen flex flex-col">
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/bicicletas']"
+        routerLinkActive="router-link-active"><a>Volver</a></div>
+    <div class="mt-10 text-5xl">Mostrar bicicleta</div>
+    <div class="mt-10 flex flex-col">
+        <div class="flex flex-row">
+            ID:
+            <input type="text" [(ngModel)]="bicycle.bicycleId" class="ml-2 w-48 h-7 pl-1">
+        </div>
+        <div class="flex flex-row mt-2">
+            Color:
+            <select name="miselect" [(ngModel)]="bicycle.color" class="custom-select ml-2 w-48 h-10 pl-1">
+                <option [value]="color.text" *ngFor="let color of colors">
+                    {{ color.text }}
+                </option>
+            </select>
+        </div>
+        <div class="flex flex-row mt-2">
+            Modelo:
+            <select name="miselect" [(ngModel)]="bicycle.model" class="custom-select ml-2 w-48 h-10 pl-1">
+                <option [value]="model.text" *ngFor="let model of models">
+                    {{ model.text }}
+                </option>
+            </select>
+        </div>
+        <div class="flex flex-row mt-2">
+            Latitud:
+            <input type="text" [(ngModel)]="bicycle.latitude" class="ml-2 w-48 h-7 pl-1">
+        </div>
+        <div class="flex flex-row mt-2">
+            Longitud:
+            <input type="text" [(ngModel)]="bicycle.longitude" class="ml-2 w-48 h-7 pl-1">
+        </div>
+    </div>
+    <div class="mt-6 ml-4 cursor-pointer rounded-3xl border-4 shadow-3xl w-24 h-10 flex flex-col justify-center items-center"
+        (click)="createBicycle()">
+        Submit
+    </div>
+</div>
+<app-footer></app-footer>

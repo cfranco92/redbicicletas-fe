@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="ml-10 h-screen flex flex-col">
+    <div class="mt-10 text-blue-400 cursor-pointer" [routerLink]="['/bicicletas']"
+        routerLinkActive="router-link-active"><a>Volver</a></div>
+    <div class="mt-10 text-5xl">Mostrar bicicleta</div>
+    <div class="mt-10 flex flex-col">
+        <div class="flex flex-row">
+            ID:
+            <div class="ml-2 border-1 border-gray-900 w-48 pl-1">
+                {{bicycle.bicycleId}}
+            </div>
+        </div>
+        <div class="flex flex-row mt-2">
+            Color:
+            <div class="ml-2 border-1 border-gray-900 w-48 pl-1">
+                {{bicycle.color}}
+            </div>
+        </div>
+        <div class="flex flex-row mt-2">
+            Modelo:
+            <div class="ml-2 border-1 border-gray-900 w-48 pl-1">
+                {{bicycle.model}}
+            </div>
+        </div>
+        <div class="flex flex-row mt-2">
+            Latitud:
+            <div class="ml-2 border-1 border-gray-900 w-48 pl-1">
+                {{bicycle.latitude}}
+            </div>
+        </div>
+        <div class="flex flex-row mt-2">
+            Longitud:
+            <div class="ml-2 border-1 border-gray-900 w-48 pl-1">
+                {{bicycle.longitude}}
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
