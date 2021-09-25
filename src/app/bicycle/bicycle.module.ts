@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BicyclesRoutingModule } from './bicycles-routing.module';
 import { CoreModule } from '../core/core.module';
 import { BicycleNewComponent } from './components/bicycle-new/bicycle-new.component';
+import { BicycleRentingComponent } from './components/bicycle-renting/bicycle-renting.component';
 
 
 
@@ -15,7 +16,8 @@ import { BicycleNewComponent } from './components/bicycle-new/bicycle-new.compon
     BicyclesListComponent,
     BicycleDetailsComponent,
     BicycleUpdateComponent,
-    BicycleNewComponent
+    BicycleNewComponent,
+    BicycleRentingComponent
   ],
   imports: [
     SharedModule,

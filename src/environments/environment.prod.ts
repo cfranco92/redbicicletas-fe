@@ -9,5 +9,7 @@ export const environment = {
     messagingSenderId: "28129451695",
     appId: "1:28129451695:web:1efc5edc7d8a68683c7e5a",
     measurementId: "G-7BFER7TEZ4"
-  }
+  },
+  rentingApi: 'http://169.57.112.124:31528',
+  bicyclesApi: 'http://169.57.112.124:30690'
 };

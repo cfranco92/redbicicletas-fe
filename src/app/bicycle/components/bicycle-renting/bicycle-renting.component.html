@@ -15,8 +15,6 @@
             <th class="text-center">Ubicación</th>
             <th class="text-center">Estado</th>
             <th class="text-center">Usuario</th>
-            <th>.</th>
-            <th>.</th>
             <th *ngIf="isLogin">.</th>
         </tr>
         <tr *ngFor="let bicycle of bicycles">
@@ -32,14 +30,17 @@
                 <div *ngIf="!bicycle.user">N/A</div>
                 <div *ngIf="bicycle.user">{{bicycle.user}}</div>
             </td>
-            <td class="text-center text-blue-400 cursor-pointer px-1"
-                [routerLink]="['/bicicletas/', bicycle.id, 'show']">
-                Mostrar</td>
-            <td class="text-center text-blue-400 cursor-pointer px-1"
-                [routerLink]="['/bicicletas/', bicycle.id, 'update']">
-                Editar</td>
-            <td class="text-center bg-gray-400 text-white"><button
-                    (click)="deleteBicycleById(bicycle.id)">Eliminar</button></td>
+            <td *ngIf="isLogin && !bicycle.user" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="rentBicycleById(bicycle)">
+                Alquilar
+            <td *ngIf="isLogin && bicycle.user === user.uid" class="text-center text-blue-400 cursor-pointer px-1"
+                (click)="returnBicycleById(bicycle)">
+                Entregar
+            </td>
+            <td *ngIf="isLogin && bicycle.user && bicycle.user !== user.uid"
+                class="text-center text-red-400 cursor-pointer px-1">
+                Restringido
+            </td>
         </tr>
     </table>
 </div>

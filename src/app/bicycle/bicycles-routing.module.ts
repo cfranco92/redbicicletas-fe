@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BicycleDetailsComponent } from './components/bicycle-details/bicycle-details.component';
 import { BicycleNewComponent } from './components/bicycle-new/bicycle-new.component';
+import { BicycleRentingComponent } from './components/bicycle-renting/bicycle-renting.component';
 import { BicycleUpdateComponent } from './components/bicycle-update/bicycle-update.component';
 import { BicyclesListComponent } from './components/bicycles-list/bicycles-list.component';
 
@@ -21,7 +22,11 @@ const routes: Routes = [
     {
         path: 'create',
         component: BicycleNewComponent
-    }
+    },
+    {
+        path: 'alquiler',
+        component: BicycleRentingComponent
+    },
 ];
 
 @NgModule({
