@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BicycleFactory } from 'src/app/core/factory/bicycle.factory';
 import { AuthenticationService } from 'src/app/core/services/authentication/authentication.service';
 import { BicycleService } from 'src/app/core/services/bicycle/bicycle.service';
+import { LocalizationService } from 'src/app/core/services/localization/localization.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   bicycles: any[] = []
 
   constructor(
-    private bicyclesService: BicycleService,
+    private localizationService: LocalizationService,
     private authService: AuthenticationService,
   ) {
     this.getUserStatus();
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   getBicycles() {
-    this.bicyclesService.read().subscribe((data) => {
+    this.localizationService.read().subscribe((data) => {
       this.bicycles = data.body.map((bicycle: any) => BicycleFactory.toModel(bicycle))
     })
   }

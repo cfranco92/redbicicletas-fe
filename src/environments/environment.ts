@@ -15,7 +15,8 @@ export const environment = {
     measurementId: "G-7BFER7TEZ4"
   },
   rentingApi: 'http://169.57.112.124:31528',
-  bicyclesApi: 'http://169.57.112.124:30690'
+  bicyclesApi: 'http://169.57.112.124:30690',
+  localizationApi: 'http://localhost:3002'
 };
 
 /*
