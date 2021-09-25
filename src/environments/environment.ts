@@ -16,7 +16,7 @@ export const environment = {
   },
   rentingApi: 'http://169.57.112.124:31528',
   bicyclesApi: 'http://169.57.112.124:30690',
-  localizationApi: 'http://localhost:3002'
+  localizationApi: 'http://169.57.112.124:31220'
 };
 
 /*
